@@ -1,8 +1,7 @@
 {
   "profiles": {
     "TextP": {
-      "commandName": "Project",
-      "commandLineArgs": "-update"
+      "commandName": "Project"
     }
   }
 }

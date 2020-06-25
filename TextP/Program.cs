@@ -61,7 +61,7 @@ namespace TextP
         static void Main(string[] args)
         {
             Directory.SetCurrentDirectory(Directory.GetCurrentDirectory() + "\\Files");
-            DBWords db=new DBWords(ConfigureConnectionToDB());
+            DBWords db = null;
 
             if (args.Length>GlobalSettings.MAX_ARGS_COUNT)
             {
@@ -71,6 +71,7 @@ namespace TextP
 
             if (args.Length!=0)
             {
+                db = new DBWords(ConfigureConnectionToDB());
                 switch (args[0])
                 {
                     case "-create": 
