@@ -61,8 +61,8 @@ namespace TextP
         static void Main(string[] args)
         {
             Directory.SetCurrentDirectory(Directory.GetCurrentDirectory() + "\\Files");
-            DBWords db = null;
-
+            DBWords db = new DBWords(ConfigureConnectionToDB());
+            
             if (args.Length>GlobalSettings.MAX_ARGS_COUNT)
             {
                 Console.WriteLine("More than one argument has been entered to run");
@@ -106,6 +106,9 @@ namespace TextP
                         break;
                 }
             }
+            if (db != null)
+                if (!db.Database.CanConnect())
+                    db = null;
             var sb = new StringBuilder();
             Console.WriteLine("You are in input mode");
             while (true)
